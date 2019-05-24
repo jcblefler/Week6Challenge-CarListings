@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <!--navbar-->
+    <div th:replace="base :: navlinks"></div>
+
+    <div class="container">
+        <br />
+        <div class="jumbotron" style="text-align: center;">
+            <h1>MEGA AUTO MART</h1>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <span th:each="category : ${categorys}">
+                    <a type="button" class="btn btn-success" th:text="${category.categoryName}" th:href="@{/detail_category/{id}(id=${category.categoryID})}"></a>
+
+                </span>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-3">
+                <span th:each="car : ${cars}">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" th:src="${car.image}" alt="Car image cap" height="296px" width="286px">
+                        <div class="card-body" style="text-align: center;">
+                            <h5 class="card-title" th:inline="text">[[${car.manufacturer}]] [[${car.model}]]</h5>
+                            <a th:href="@{/detail_car/{id}(id=${car.carID})}" class="btn btn-primary">MORE INFO!</a>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!--Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
