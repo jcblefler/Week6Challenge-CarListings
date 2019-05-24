@@ -22,17 +22,17 @@
                 <img th:src="${car.image}" height="256px" width="256px">
             </div>
             <div class="col-sm-5">
-                    <h4>Manufacturer: </h4><span th:text="${car.manufacturer}"></span><br />
-                    <h4>Model: </h4><span th:text="${car.model}"></span><br />
-                    <h5>Year: </h5><span th:text="${car.year}"></span><br />
-                    <h4>MSRP: $</h4><span th:text="${car.msrp}"></span><br />
+                    <h4>Manufacturer: </h4><span th:text="${car.manufacturer}"></span><br /><br />
+                    <h4>Model: </h4><span th:text="${car.model}"></span><br /><br />
+                    <h5>Year: </h5><span th:text="${car.year}"></span><br /><br />
+                    <h4>MSRP: </h4><span th:inline="text">$[[${car.msrp}]]</span><br /><br />
                     <h5>Category: </h5><span th:text="${car.category.categoryName}"></span><br />
             </div>
             <div class="col-sm-2">
                 <br />
                 <a th:href="@{/update_car/{id}(id=${car.carID})}" class="btn btn-warning">UPDATE INFO!</a>
                 <br />
-                <a th:href="@{/delete_dar/{id}(id=${car.carID})}" class="btn btn-danger">DELETE CAR!</a>
+                <a th:href="@{/delete_car/{id}(id=${car.carID})}" class="btn btn-danger">DELETE CAR!</a>
             </div>
 
         </div>

@@ -24,7 +24,7 @@ public class Car {
     @Min(2)
     private long year;
 
-    @NotNull
+
     private double msrp;
 
 

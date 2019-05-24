@@ -17,13 +17,13 @@
         <div th:replace="base :: header"></div>
 
         <h2 style="text-align: center"><em>CATEGORIES</em></h2>
-
+        <hr />
         <div class="row">
             <div th:each="category : ${categorys}">
-                <div class="col-sm-2">
-                    <a class="btn btn-primary btn-lg" th:href="@{detail_category/{id}(id=${category.categoryID})}">Details</a>
-                    <a style="text-align: center" th:href="@{update_category/{id}(id=${category.categoryID})}">Update</a>
-                    <a style="text-align: center" th:href="@{delete_category/{id}(id=${category.categoryID})}">Delete</a>
+                <div class="col-sm-2" style="text-align: center">
+                    <a class="btn btn-primary btn-lg" th:text="${category.categoryName}" th:href="@{detail_category/{id}(id=${category.categoryID})}"></a>
+                    <a th:href="@{/update_category/{id}(id=${category.categoryID})}">Update</a>
+                    <a th:href="@{/delete_category/{id}(id=${category.categoryID})}">Delete</a>
                 </div>
             </div>
         </div>

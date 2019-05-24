@@ -59,7 +59,7 @@ public class HomeController {
     @RequestMapping("/detail_category/{id}")
     public String showCategory(@PathVariable("id") long id, Model model){
         model.addAttribute("category", categoryRepository.findById(id).get());
-
+        model.addAttribute("cars", carRepository.findAll());
         return "showcategory";
     }
 
@@ -129,7 +129,8 @@ public class HomeController {
     @RequestMapping("/delete_car/{id}")
     public String delCar(@PathVariable("id") long id){
         carRepository.deleteById(id);
-        return "carlist";
+
+        return "redirect:/carlist";
     }
 
 

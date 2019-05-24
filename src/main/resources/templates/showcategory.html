@@ -15,6 +15,26 @@
     <div class="container">
         <div th:replace="base :: header"></div>
 
+        <h2 style="text-align: center" th:text="${category.categoryName}"></h2>
+        <hr />
+        <div class="row">
+            <div th:each="car : ${cars}">
+                <div th:if="${car.category.categoryID == category.categoryID}">
+                    <div class="col-sm-3">
+
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" th:src="${car.image}" alt="Car image cap" height="296px" width="286px">
+                            <div class="card-body" style="text-align: center;">
+                                <h5 class="card-title" th:inline="text">[[${car.manufacturer}]] [[${car.model}]]</h5>
+                                <a th:href="@{/detail_car/{id}(id=${car.carID})}" class="btn btn-primary">MORE INFO!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
     <!--Bootstrap JS-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
