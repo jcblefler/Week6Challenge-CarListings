@@ -29,15 +29,20 @@
         <hr />
         <div class="row">
             <div class="col-sm-3">
-                <span th:each="car : ${cars}">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" th:src="${car.image}" alt="Car image cap" height="296px" width="286px">
-                        <div class="card-body" style="text-align: center;">
-                            <h5 class="card-title" th:inline="text">[[${car.manufacturer}]] [[${car.model}]]</h5>
-                            <a th:href="@{/detail_car/{id}(id=${car.carID})}" class="btn btn-primary">MORE INFO!</a>
+                <div class="row">
+                    <div th:each="car : ${cars}">
+                        <div class="col-sm-3">
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" th:src="${car.image}" alt="Car image cap" height="296px" width="286px">
+                                <div class="card-body" style="text-align: center;">
+                                    <h5 class="card-title" th:inline="text">[[${car.manufacturer}]] [[${car.model}]]</h5>
+                                    <a th:href="@{/detail_car/{id}(id=${car.carID})}" class="btn btn-primary">MORE INFO!</a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
-                </span>
+                </div>
             </div>
         </div>
 
