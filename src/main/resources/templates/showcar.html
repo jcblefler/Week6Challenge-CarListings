@@ -8,15 +8,33 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body>
+<body style="background-color: #c4dafc;">
     <!--navbar-->
     <div th:replace="base :: navlinks"></div>
-
+    <br />
+    <br />
     <div class="container">
+
+        <div th:replace="base :: header"></div>
+
         <div class="row" >
-            <div class="col-sm-4">
-                <img th:src="${car.image}">
+            <div class="col-sm-5">
+                <img th:src="${car.image}" height="256px" width="256px">
             </div>
+            <div class="col-sm-5">
+                    <h4>Manufacturer: </h4><span th:text="${car.manufacturer}"></span><br />
+                    <h4>Model: </h4><span th:text="${car.model}"></span><br />
+                    <h5>Year: </h5><span th:text="${car.year}"></span><br />
+                    <h4>MSRP: $</h4><span th:text="${car.msrp}"></span><br />
+                    <h5>Category: </h5><span th:text="${car.category.categoryName}"></span><br />
+            </div>
+            <div class="col-sm-2">
+                <br />
+                <a th:href="@{/update_car/{id}(id=${car.carID})}" class="btn btn-warning">UPDATE INFO!</a>
+                <br />
+                <a th:href="@{/delete_dar/{id}(id=${car.carID})}" class="btn btn-danger">DELETE CAR!</a>
+            </div>
+
         </div>
     </div>
 

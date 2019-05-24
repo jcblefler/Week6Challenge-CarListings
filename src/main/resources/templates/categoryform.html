@@ -8,19 +8,35 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body>
+<body style="background-color: #c4dafc;">
 
     <!--navbar-->
     <div th:replace="base :: navlinks"></div>
 
-    <form action="#" th:action="@{/process_category}" th:object="${category}" method="post">
-        <input type="hidden" th:field="*{categoryID}" />
+    <div class="container">
 
-        Category: <input type="text" th:field="*{categoryName}"><br />
-        <span th:if="${#fields.hasErrors('categoryName')}" th:errors="*{categoryName}"></span><br />
+        <div th:replace="base :: header"></div>
 
-        <input type="submit" value="Submit">
-    </form>
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6" style="text-align: center">
+                <h4>ADD A CATEGORY</h4>
+                <form action="#" th:action="@{/process_category}" th:object="${category}" method="post">
+                    <input type="hidden" th:field="*{categoryID}" />
+
+                    Category: <input type="text" th:field="*{categoryName}"><br />
+                    <span th:if="${#fields.hasErrors('categoryName')}" th:errors="*{categoryName}"></span><br />
+
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+
+
+
+
 
     <!--Bootstrap JS-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -8,20 +8,28 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body>
+<body style="background-color: #c4dafc;">
     <!--navbar-->
     <div th:replace="base :: navlinks"></div>
 
-    <table>
-        <tr th:each="category : ${categorys}">
-            <td th:text="${category.categoryName}"></td>
-            <td>
-                <a th:href="@{update_category/{id}(id=${category.categoryID})}">Update</a>
-                <a th:href="@{detail_category/{id}(id=${category.categoryID})}">Details</a>
-                <a th:href="@{delete_category/{id}(id=${category.categoryID})}">Delete</a>
-            </td>
-        </tr>
-    </table>
+    <div class="container">
+
+        <div th:replace="base :: header"></div>
+
+        <h2 style="text-align: center"><em>CATEGORIES</em></h2>
+
+        <div class="row">
+            <div th:each="category : ${categorys}">
+                <div class="col-sm-2">
+                    <a class="btn btn-primary btn-lg" th:href="@{detail_category/{id}(id=${category.categoryID})}">Details</a>
+                    <a style="text-align: center" th:href="@{update_category/{id}(id=${category.categoryID})}">Update</a>
+                    <a style="text-align: center" th:href="@{delete_category/{id}(id=${category.categoryID})}">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 
     <!--Bootstrap JS-->

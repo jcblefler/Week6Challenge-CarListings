@@ -8,10 +8,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body>
+<body style="background-color: #c4dafc;">
     <!--navbar-->
     <div th:replace="base :: navlinks"></div>
+    <br />
+    <br />
+    <div class="container">
 
+        <div th:replace="base :: header"></div>
+
+        <h2 style="text-align: center"><em>CARS</em></h2>
+        <div class="row">
+            <div th:each="car : ${cars}">
+                <div class="col-sm-3">
+
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" th:src="${car.image}" alt="Car image cap" height="296px" width="286px">
+                            <div class="card-body" style="text-align: center;">
+                                <h5 class="card-title" th:inline="text">[[${car.manufacturer}]] [[${car.model}]]</h5>
+                                <a th:href="@{/detail_car/{id}(id=${car.carID})}" class="btn btn-primary">MORE INFO!</a>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!--Bootstrap JS-->

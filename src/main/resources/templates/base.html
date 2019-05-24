@@ -10,7 +10,7 @@
 </head>
 <body>
     <div th:fragment="navlinks">
-        <nav class="navbar navbar-expand-sm bg-light">
+        <nav class="navbar navbar-expand-sm" style="background-color: cadetblue">
 
             <!-- Links -->
             <ul class="navbar-nav">
@@ -18,25 +18,36 @@
                     <img src="https://image.flaticon.com/icons/png/128/84/84920.png" alt="car logo" height="50px" width="50px"/>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">HomePage</a>
+                    <a class="nav-link" href="/" style="font-size: 1.5em; color: red;">HomePage</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/carlist">View Cars</a>
+                    <a class="nav-link" href="/categorylist" style="font-size: 1.5em; color: red;">View Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/carlist" style="font-size: 1.5em; color: red;">View Cars</a>
                 </li>
 
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="font-size: 1.5em; color: red;">
                         Add Entry
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/addcategory">Add a Category</a>
-                        <a class="dropdown-item" href="/addcar">Add a Car</a>
+                        <a class="dropdown-item" href="/addcategory" style="font-size: 1.5em; color: red;">Add a Category</a>
+                        <a class="dropdown-item" href="/addcar" style="font-size: 1.5em; color: red;">Add a Car</a>
                     </div>
                 </li>
             </ul>
 
         </nav>
+    </div>
+
+
+    <div th:fragment="header">
+        <br />
+        <div class="jumbotron" style="text-align: center; background-color: aquamarine">
+            <h1>MEGA AUTO MART</h1>
+        </div>
     </div>
 
     <!--Bootstrap JS-->

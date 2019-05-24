@@ -72,7 +72,7 @@ public class HomeController {
     @RequestMapping("/delete_category/{id}")
     public String delCategory(@PathVariable("id") long id){
         categoryRepository.deleteById(id);
-        return "index";
+        return "categorylist";
     }
 
 // Car
@@ -129,7 +129,7 @@ public class HomeController {
     @RequestMapping("/delete_car/{id}")
     public String delCar(@PathVariable("id") long id){
         carRepository.deleteById(id);
-        return "index";
+        return "carlist";
     }
 
 
